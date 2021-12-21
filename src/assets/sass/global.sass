@@ -9,3 +9,34 @@
     border-top-color: #17b2c7 !important
     border-right-color: #17b2c7 !important
     border-bottom-color: #17b2c7 !important
+
+.carousel
+    display: flex
+    align-items: center
+    justify-content: space-between
+    .carousel-wrapper
+        width: 100%
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        .carousel-content
+            display: flex
+            transition: all 250ms linear
+            -ms-overflow-style: none
+            scrollbar-width: none
+            &-wrapper
+                overflow: hidden
+                width: 100%
+            & > *
+                width: 100%
+                flex-shrink: 0
+                flex-grow: 1
+                margin: 0 10px
+            &.show-2 > *
+                width: 50%
+            &.show-3 > *
+                width: calc(100% / 3)
+            &.show-4 > *
+                width: calc(100% / 4)
+            &::-webkit-scrollbar, &::-webkit-scrollbar
+                display: none

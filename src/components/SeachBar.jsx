@@ -16,6 +16,7 @@ const SaerchBar = (props) => {
     const handleChangeType = (event) => {
         setType(event.target.value);
     };
+    
     const SearchBarPaper = styled(Paper)(() => ({
         borderLeft: '1px solid rgba(51, 51, 51, 0.2)',
         borderTop: '1px solid rgba(51, 51, 51, 0.2)',
@@ -32,7 +33,7 @@ const SaerchBar = (props) => {
         fontSize: '18px',
         '.MuiSelect-select': {
             padding: '15px 12px 0px 12px',
-            paddingRight: '10px !important' 
+            paddingRight: '10px !important'
         },
         'fieldset': {
             border: 'none'
@@ -84,9 +85,13 @@ const SaerchBar = (props) => {
                 placeholder="試試輸入關鍵字"
                 inputProps={{ 'aria-label': '試試輸入關鍵字' }}
             />
-            
-            <CustomBtn variant="contained" aria-label="search" className="search-btn" sx={{ p: '10px', width: 120, height: 60 }}>
-                <SearchIcon sx={{ mr: 1 }}/>
+
+            <CustomBtn
+                variant="contained"
+                aria-label="search"
+                className="search-btn"
+                sx={{ p: '10px', width: 120, height: 60 }}>
+                <SearchIcon sx={{ mr: 1 }} />
                 搜尋
             </CustomBtn>
         </SearchBarPaper>
