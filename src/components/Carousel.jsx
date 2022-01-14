@@ -1,22 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import '../assets/sass/global.sass'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ContentCard from './ContentCard';
 
-function Repeat(props) {
-    let items = [];
-    for (let i = 0; i < props.items; i++) {
-        items.push(props.children(i));
-    }
-    return <div>{items}</div>;
-}
-
-const Carousel = (props) => {
-    const { show, items } = props
+const Carousel = forwardRef((props, ref) => {
+    const { show, items, customBtn } = props
     const [currentIndex, setCurrentIndex] = useState(0)
     const [length, setLength] = useState(items.length)
     const [touchPosition, setTouchPosition] = useState(null)
+    
+    useImperativeHandle(ref, () => ({
+        next() {
+            if (currentIndex >= (length - show)) return
+            setCurrentIndex(prevState => prevState + 1)
+        },
+        prev() {
+            if (currentIndex <= 0) return
+            setCurrentIndex(prevState => prevState - 1)
+        }
+    }))
 
     useEffect(() => {
         setLength(items.length)
@@ -52,7 +55,7 @@ const Carousel = (props) => {
     return (
         <div className="carousel">
             <div className="carousel-wrapper">
-                {currentIndex > 0 &&
+                {(currentIndex > 0 && !customBtn) &&
                     <ArrowBackIosNewIcon onClick={prev} />
                 }
                 <div
@@ -69,12 +72,16 @@ const Carousel = (props) => {
                         ))}
                     </div>
                 </div>
-                {currentIndex < (length - show) &&
+                {(currentIndex < (length - show) && !customBtn)&&
                     <ArrowForwardIosIcon onClick={next} />
                 }
             </div>
         </div>
     )
+})
+
+Carousel.defaultProps = {
+    customBtn: false
 }
 
 export default Carousel

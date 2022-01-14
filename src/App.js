@@ -1,4 +1,5 @@
 import Layout from "./page/Layout";
+import './assets/sass/global.sass'
 
 function App() {
   return (

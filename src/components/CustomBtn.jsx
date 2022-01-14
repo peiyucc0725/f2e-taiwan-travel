@@ -4,17 +4,23 @@ import Button from '@mui/material/Button';
 
 const CustomBtn = (props) => {
     const ColorButton = styled(Button)(() => ({
-        color: '#ffffff',
-        backgroundColor: '#23BFD4',
-        fontSize: '16px',
+        color: props.textcolor,
+        backgroundColor: props.bgcolor,
+        fontSize: props.fontSize,
         '&:hover': {
-          backgroundColor: '#17b2c7',
+          backgroundColor: props.bgcolor,
         },
       }));
 
     return (
         <ColorButton variant="contained" {...props}>{props.children}</ColorButton>
     )
+}
+
+CustomBtn.defaultProps = {
+  textcolor: '#ffffff',
+  bgcolor: '#23BFD4',
+  fontSize: '16px'
 }
 
 export default CustomBtn
