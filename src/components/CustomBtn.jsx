@@ -10,6 +10,8 @@ const CustomBtn = (props) => {
         '&:hover': {
           backgroundColor: props.bgcolor,
         },
+        boxShadow: 'none',
+        minWidth: '36px'
       }));
 
     return (
