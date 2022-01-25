@@ -1,5 +1,4 @@
-import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
-import '../assets/sass/global.sass'
+import React, { useState, useEffect, forwardRef, useImperativeHandle, useRef } from 'react';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ContentCard from './ContentCard';
@@ -9,10 +8,15 @@ const Carousel = forwardRef((props, ref) => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [length, setLength] = useState(items.length)
     const [touchPosition, setTouchPosition] = useState(null)
-    
+    const currentEl = useRef(null)
+    const [currentWidth, setCurrentWidth] = useState(0)
+    const handleResize = () => {
+        setCurrentWidth(currentEl.current.offsetWidth)
+    }
+
     useImperativeHandle(ref, () => ({
         next() {
-            if (currentIndex >= (length - show)) return
+            if (currentIndex > (length - show)) return
             setCurrentIndex(prevState => prevState + 1)
         },
         prev() {
@@ -20,13 +24,15 @@ const Carousel = forwardRef((props, ref) => {
             setCurrentIndex(prevState => prevState - 1)
         }
     }))
-
+    
     useEffect(() => {
         setLength(items.length)
-    }, [items])
+        if (currentEl.current) currentEl.current.addEventListener('resize', handleResize)
+        handleResize()
+    }, [items, currentEl])
 
     const next = () => {
-        if (currentIndex >= (length - show)) return
+        if (currentIndex > (length - show)) return
         setCurrentIndex(prevState => prevState + 1)
     }
 
@@ -64,15 +70,16 @@ const Carousel = forwardRef((props, ref) => {
                     onTouchMove={handleTouchMove}
                 >
                     <div
+                        ref={currentEl}
                         className={`carousel-content show-${show}`}
-                        style={{ transform: `translateX(-${currentIndex * 255 + currentIndex * 20}px)` }}
+                        style={{ transform: `translateX(-${currentWidth / show * currentIndex + 20 * currentIndex}px)` }}
                     >
                         {items.map((item, index) => (
                             <ContentCard key={index} item={item}></ContentCard>
                         ))}
                     </div>
                 </div>
-                {(currentIndex < (length - show) && !customBtn)&&
+                {(currentIndex < (length - show) && !customBtn) &&
                     <ArrowForwardIosIcon onClick={next} />
                 }
             </div>

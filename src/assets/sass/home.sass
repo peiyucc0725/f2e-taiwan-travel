@@ -28,7 +28,16 @@
         margin: 0 auto
         overflow: hidden
         position: relative
+        padding-bottom: 10px
+        .body-block
+            position: relative
+            margin: 96px 0
         .arrowbtn-wrapper
             position: absolute
-            right: 20px
-            top: 30px
+            right: 0px
+            top: -2px
+
+@media screen and (max-width: 1280px)
+    .home
+        &__body
+            max-width: calc(100% - 90px)

@@ -1,3 +1,34 @@
+$primaryColor: #23BFD4
+$subPrimaryColor: #17b2c7
+
+.header   
+    height: 88px
+    width: 100%
+    background-color: #ffffff 
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08)
+    position: fixed
+    top: 0
+    z-index: 99
+    display: flex
+    align-items: center
+    justify-content: center
+    &-wrapper
+        width: 1280px
+        max-width: 1280px
+        display: flex
+        align-items: center
+        .logo
+            margin-right: 50px
+
+.footer
+    height: 80px
+    color: #ffffff
+    background-color: $primaryColor
+    font-size: 18px
+    display: flex
+    align-items: center
+    justify-content: center
+
 .search-btn
     border: solid !important
     border-top-left-radius: 0px !important
@@ -6,9 +37,9 @@
     border-bottom-right-radius: 4px !important
     border-width: 1px !important
     border-left-width: 0 !important
-    border-top-color: #17b2c7 !important
-    border-right-color: #17b2c7 !important
-    border-bottom-color: #17b2c7 !important
+    border-top-color: $subPrimaryColor !important
+    border-right-color: $subPrimaryColor !important
+    border-bottom-color: $subPrimaryColor !important
 
 .carousel
     display: flex
@@ -41,8 +72,32 @@
             &::-webkit-scrollbar, &::-webkit-scrollbar
                 display: none
 
+.carousel-layout
+    display: flex
+    align-items: center
+    justify-content: space-between
+    .carousel-wrapper
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        .carousel-content
+            display: flex
+            transition: all 250ms linear
+            -ms-overflow-style: none
+            scrollbar-width: none
+            & > *
+                width: calc(100% - 10px)
+                flex-shrink: 0
+                flex-grow: 1
+                margin: 0 10px
+                padding: 0
+            &-wrapper
+                overflow: hidden
+            &::-webkit-scrollbar, &::-webkit-scrollbar
+                display: none
+
 .custom-title
-    border-left-color: #23BFD4
+    border-left-color: $primaryColor
     border-left-width: 12px
     border-left-style: solid
     padding-left: 8px
@@ -58,25 +113,25 @@
     &__content
         padding: 12px !important
     &__title
-        font-size: 20px
         font-weight: 600
         overflow: hidden
         white-space: nowrap
         text-overflow: ellipsis
-        margin: 8px 0
+        margin: 0 0 6px 0
     &__range
         font-size: 12px
         color: #33333399
         display: flex
         align-items: center
+        margin: 0 0 8px 0
         svg
             margin-right: 3px
     &__location
         font-size: 16px
-        color: #23BFD4
+        color: $primaryColor
         display: flex
         align-items: center
-        margin: 8px 0 0 0
+        margin: 6px 0 0 0
         svg
             margin-right: 3px
     &__tag
@@ -85,7 +140,7 @@
         border-radius: 100px
         display: inline-block
         padding: 4px 8px
-        margin: 10px 0 0 0
+        margin: 10px 8px 0 0
     &__desc
         color: #9B9B9B
         font-size: 16px
@@ -94,4 +149,4 @@
         -webkit-box-orient: vertical
         overflow: hidden
         min-height: 66px
-        margin: 16px 0
+        margin: 16px 0 6px 0

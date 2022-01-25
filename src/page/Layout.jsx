@@ -1,9 +1,14 @@
-import Home from "./Home"
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 const Layout = (props) => {
     return (
         <div className="layout">
-            <Home />
+            <Header/>
+            <main>
+                {props.children}
+            </main>
+            <Footer />
         </div>
     )
 }

@@ -3,7 +3,6 @@ import { Paper, InputBase, InputLabel, MenuItem, Select, FormControl, Divider } 
 import SearchIcon from '@mui/icons-material/Search';
 import CustomBtn from './CustomBtn';
 import { styled } from '@mui/material/styles';
-import '../assets/sass/global.sass'
 
 const SaerchBar = (props) => {
     const [place, setPlace] = React.useState(1);
@@ -46,7 +45,7 @@ const SaerchBar = (props) => {
     return (
         <SearchBarPaper
             component="form"
-            sx={{ display: 'flex', alignItems: 'center', width: 730, height: 60 }}
+            sx={{ display: 'flex', alignItems: 'center', width: 730, height: props.dense? 55 : 60 }}
             {...props}
         >
             <FormControl sx={{ mt: 1, width: 100, height: 48 }}>
@@ -90,12 +89,13 @@ const SaerchBar = (props) => {
                 variant="contained"
                 aria-label="search"
                 className="search-btn"
-                sx={{ p: '10px', width: 120, height: 60 }}>
+                sx={{ p: '10px', width: 120, height: props.dense? 55 : 60 }}>
                 <SearchIcon sx={{ mr: 1 }} />
                 搜尋
             </CustomBtn>
         </SearchBarPaper>
     )
 }
+
 
 export default SaerchBar

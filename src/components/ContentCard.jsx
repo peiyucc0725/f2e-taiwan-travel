@@ -3,17 +3,16 @@ import DateRangeOutlinedIcon from '@mui/icons-material/DateRangeOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 const ContentCard = (props) => {
-    const { maxWidth, width } = props
+    const { maxWidth, width, imageHeight, titleFontSize } = props
     const cardInfo = props.item
-    console.log(cardInfo)
     return (
         <Card sx={{ maxWidth: maxWidth, width: width || 'inital' }} className="custom-card">
             <CardActionArea>
                 {(cardInfo && cardInfo.image) &&
                     <CardMedia
                         component="img"
-                        height="140"
-                        image={`https://picsum.photos/id/${(cardInfo.image + 1)*10}/800/300`}
+                        height={imageHeight}
+                        image={`https://picsum.photos/id/${(cardInfo.image + 1) * 10}/800/300`}
                         alt="green iguana"
                     />
                 }
@@ -25,7 +24,7 @@ const ContentCard = (props) => {
                         </div>
                     }
                     {(cardInfo && cardInfo.title) &&
-                        <div className='custom-card__title'>{cardInfo.title}</div>
+                        <div className='custom-card__title' style={{ fontSize: titleFontSize }}>{cardInfo.title}</div>
                     }
                     {(cardInfo && cardInfo.location) &&
                         <div className='custom-card__location'>
@@ -36,8 +35,10 @@ const ContentCard = (props) => {
                     {(cardInfo && cardInfo.content) &&
                         <div className='custom-card__desc'>{cardInfo.content}</div>
                     }
-                    {(cardInfo && cardInfo.tag) &&
-                        <div className='custom-card__tag'>{cardInfo.tag}</div>
+                    {(cardInfo && cardInfo.tags) &&
+                        cardInfo.tags.map((item, index) => (
+                            <div key={index} className='custom-card__tag'>{item}</div>
+                        ))
                     }
                 </CardContent>
             </CardActionArea>
@@ -46,7 +47,9 @@ const ContentCard = (props) => {
 }
 
 ContentCard.defaultProps = {
-    maxWidth: 255
+    maxWidth: 255,
+    imageHeight: 140,
+    titleFontSize: 20
 }
 
 export default ContentCard

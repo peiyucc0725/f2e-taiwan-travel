@@ -1,5 +1,5 @@
 import banner from '../../assets/image/banner.png'
-import logo from '../../assets/image/logo.png'
+import logo from '../../assets/image/logo_w.png'
 import '../../assets/sass/home.sass'
 import SearchBar from '../../components/SeachBar'
 import React from 'react';
@@ -8,22 +8,16 @@ import { useRef } from 'react';
 import CustomBtn from '../../components/CustomBtn';
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
-import ContentCard from '../../components/ContentCard';
-
-const activity = [
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tag: '年度活動', image: 1 },
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tag: '年度活動', image: 2 },
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tag: '年度活動', image: 3 },
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tag: '年度活動', image: 4 },
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tag: '年度活動', image: 5 },
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tag: '年度活動', image: 6 },
-]
-const hotAct = { 
-    title: '九份老街', location: '新北市', tag: '歷史', image: 7, content: '九份老街是位於臺灣新北市瑞芳區的一條老街，主要範圍以聚集在基山街、豎崎路及輕便路等街道為主，是全台灣最熱門的觀光景點之一，全年觀光客絡繹不絕。若以客源分析，平日以來自日本、韓國等地的外籍遊客'
-}
+import CarouselLayout from '../../components/CarouselLayout';
+import { activity, hotAttSub, hotActSub, hotFood, hotStay } from './variable.js'
+import Footer from '../../components/Footer'
 
 const Home = (props) => {
-    const childRef = useRef();
+    const childRefAct = useRef();
+    const childRefHotAtt = useRef();
+    const childRefHotAct = useRef();
+    const childRefHotFood = useRef();
+    const childRefHotStay = useRef();
 
     return (
         <div className="home">
@@ -34,29 +28,118 @@ const Home = (props) => {
                 <SearchBar className="search-bar"></SearchBar>
             </div>
             <div className='home__body'>
-                <div className='arrowbtn-wrapper'>
-                    <CustomBtn
-                        variant="contained"
-                        bgcolor="#33333333"
-                        aria-label="search"
-                        sx={{ p: '10px', width: 36, height: 36, mr: 3 }}
-                        onClick={() => childRef.current.prev()}>
-                        <KeyboardArrowLeftOutlinedIcon sx={{ fontSize: 32 }} />
-                    </CustomBtn>
-                    <CustomBtn
-                        variant="contained"
-                        bgcolor="#33333333"
-                        aria-label="search"
-                        sx={{ p: '10px', width: 36, height: 36 }}
-                        onClick={() => childRef.current.next()}>
-                        <KeyboardArrowRightOutlinedIcon sx={{ fontSize: 32 }} />
-                    </CustomBtn>
+                <div className="body-block">
+                    <div className='arrowbtn-wrapper'>
+                        <CustomBtn
+                            variant="contained"
+                            bgcolor="#33333333"
+                            aria-label="prev"
+                            sx={{ p: '10px', width: 36, height: 36, mr: 3 }}
+                            onClick={() => childRefAct.current.prev()}>
+                            <KeyboardArrowLeftOutlinedIcon sx={{ fontSize: 32 }} />
+                        </CustomBtn>
+                        <CustomBtn
+                            variant="contained"
+                            bgcolor="#33333333"
+                            aria-label="next"
+                            sx={{ p: '10px', width: 36, height: 36 }}
+                            onClick={() => childRefAct.current.next()}>
+                            <KeyboardArrowRightOutlinedIcon sx={{ fontSize: 32 }} />
+                        </CustomBtn>
+                    </div>
+                    <div className='custom-title'>近期活動</div>
+                    <Carousel ref={childRefAct} items={activity} show={4} customBtn={true}></Carousel>
                 </div>
-                <div className='custom-title'>近期活動</div>
-                <Carousel ref={childRef} items={activity} show={4} customBtn={true}></Carousel>
-                <div className='custom-title'>熱門景點</div>
-                <ContentCard item={hotAct} width={255}></ContentCard>
+                <div className="body-block">
+                    <div className='arrowbtn-wrapper'>
+                        <CustomBtn
+                            variant="contained"
+                            bgcolor="#33333333"
+                            aria-label="prev"
+                            sx={{ p: '10px', width: 36, height: 36, mr: 3 }}
+                            onClick={() => childRefHotAtt.current.prev()}>
+                            <KeyboardArrowLeftOutlinedIcon sx={{ fontSize: 32 }} />
+                        </CustomBtn>
+                        <CustomBtn
+                            variant="contained"
+                            bgcolor="#33333333"
+                            aria-label="next"
+                            sx={{ p: '10px', width: 36, height: 36 }}
+                            onClick={() => childRefHotAtt.current.next()}>
+                            <KeyboardArrowRightOutlinedIcon sx={{ fontSize: 32 }} />
+                        </CustomBtn>
+                    </div>
+                    <div className='custom-title'>熱門景點</div>
+                    <CarouselLayout ref={childRefHotAtt} items={hotAttSub} customBtn={true}></CarouselLayout>
+                </div>
+                <div className="body-block">
+                    <div className='arrowbtn-wrapper'>
+                        <CustomBtn
+                            variant="contained"
+                            bgcolor="#33333333"
+                            aria-label="prev"
+                            sx={{ p: '10px', width: 36, height: 36, mr: 3 }}
+                            onClick={() => childRefHotAct.current.prev()}>
+                            <KeyboardArrowLeftOutlinedIcon sx={{ fontSize: 32 }} />
+                        </CustomBtn>
+                        <CustomBtn
+                            variant="contained"
+                            bgcolor="#33333333"
+                            aria-label="next"
+                            sx={{ p: '10px', width: 36, height: 36 }}
+                            onClick={() => childRefHotAct.current.next()}>
+                            <KeyboardArrowRightOutlinedIcon sx={{ fontSize: 32 }} />
+                        </CustomBtn>
+                    </div>
+                    <div className='custom-title'>熱門活動</div>
+                    <CarouselLayout ref={childRefHotAct} items={hotActSub} customBtn={true}></CarouselLayout>
+                </div>
+                <div className="body-block">
+                    <div className='arrowbtn-wrapper'>
+                        <CustomBtn
+                            variant="contained"
+                            bgcolor="#33333333"
+                            aria-label="prev"
+                            sx={{ p: '10px', width: 36, height: 36, mr: 3 }}
+                            onClick={() => childRefHotFood.current.prev()}>
+                            <KeyboardArrowLeftOutlinedIcon sx={{ fontSize: 32 }} />
+                        </CustomBtn>
+                        <CustomBtn
+                            variant="contained"
+                            bgcolor="#33333333"
+                            aria-label="next"
+                            sx={{ p: '10px', width: 36, height: 36 }}
+                            onClick={() => childRefHotFood.current.next()}>
+                            <KeyboardArrowRightOutlinedIcon sx={{ fontSize: 32 }} />
+                        </CustomBtn>
+                    </div>
+                    <div className='custom-title'>熱門美食</div>
+                    <Carousel ref={childRefHotFood} items={hotFood} show={4} customBtn={true}></Carousel>
+                </div>
+                <div className="body-block">
+                    <div className='arrowbtn-wrapper'>
+                        <CustomBtn
+                            variant="contained"
+                            bgcolor="#33333333"
+                            aria-label="prev"
+                            sx={{ p: '10px', width: 36, height: 36, mr: 3 }}
+                            onClick={() => childRefHotStay.current.prev()}>
+                            <KeyboardArrowLeftOutlinedIcon sx={{ fontSize: 32 }} />
+                        </CustomBtn>
+                        <CustomBtn
+                            variant="contained"
+                            bgcolor="#33333333"
+                            aria-label="next"
+                            sx={{ p: '10px', width: 36, height: 36 }}
+                            onClick={() => childRefHotStay.current.next()}>
+                            <KeyboardArrowRightOutlinedIcon sx={{ fontSize: 32 }} />
+                        </CustomBtn>
+                    </div>
+                    <div className='custom-title'>熱門住宿</div>
+                    <Carousel ref={childRefHotStay} items={hotStay} show={4} customBtn={true}></Carousel>
+                </div>
             </div>
+            <Footer />
         </div>
     )
 }
