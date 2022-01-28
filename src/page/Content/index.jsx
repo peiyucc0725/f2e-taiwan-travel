@@ -2,7 +2,7 @@ import * as React from 'react';
 
 const Content = (props) => {
     return (
-        <div></div>
+        <div>Content page</div>
     )
 }
 

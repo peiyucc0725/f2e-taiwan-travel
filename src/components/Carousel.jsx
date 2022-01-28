@@ -72,7 +72,7 @@ const Carousel = forwardRef((props, ref) => {
                     <div
                         ref={currentEl}
                         className={`carousel-content show-${show}`}
-                        style={{ transform: `translateX(-${currentWidth / show * currentIndex + 20 * currentIndex}px)` }}
+                        style={{ transform: `translateX(-${currentWidth / show * currentIndex + 7 * currentIndex}px)` }}
                     >
                         {items.map((item, index) => (
                             <ContentCard key={index} item={item}></ContentCard>

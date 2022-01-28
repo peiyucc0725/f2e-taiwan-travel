@@ -9,7 +9,7 @@ import CustomBtn from '../../components/CustomBtn';
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
 import CarouselLayout from '../../components/CarouselLayout';
-import { activity, hotAttSub, hotActSub, hotFood, hotStay } from './variable.js'
+import { activity, hotAttSub, hotActSub, hotFood, hotStay } from '../../utils/variable.js'
 import Footer from '../../components/Footer'
 
 const Home = (props) => {

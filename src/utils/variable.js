@@ -51,3 +51,43 @@ export const hotStay = [
     { title: '福田居民宿', location: '新北市', tags: ['一般旅宿'], image: 48 },
     { title: '菁華河畔民宿', location: '台中市', tags: ['一般旅宿'], image: 49 },
 ]
+
+export const city = [
+    {
+        type: '北部', data: [
+            { text: '基隆市', value: 1 },
+            { text: '台北市', value: 2 },
+            { text: '新北市', value: 3 },
+            { text: '宜蘭縣', value: 4 }
+        ]
+    },
+    {
+        type: '中部', data: [
+            { text: '苗栗縣', value: 5 },
+            { text: '台中市', value: 6 },
+            { text: '彰化縣', value: 7 },
+            { text: '南投縣', value: 8 }
+        ]
+    },
+    {
+        type: '南部', data: [
+            { text: '嘉義縣', value: 9 },
+            { text: '台南市', value: 10 },
+            { text: '高雄市', value: 11 },
+            { text: '屏東縣', value: 12 }
+        ]
+    },
+    {
+        type: '東部', data: [
+            { text: '花蓮縣', value: 13 },
+            { text: '台東縣', value: 14 }
+        ]
+    },
+    {
+        type: '外島', data: [
+            { text: '澎湖縣', value: 15 },
+            { text: '連江縣', value: 16 },
+            { text: '金門縣', value: 17 }
+        ]
+    }
+]

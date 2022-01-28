@@ -88,7 +88,7 @@ const Carousel = forwardRef((props, ref) => {
                     <div
                         ref={currentEl}
                         className={`carousel-content`}
-                        style={{ transform: `translateX(-${currentIndex * currentWidth + 10 * currentIndex}px)` }}
+                        style={{ transform: `translateX(-${currentIndex * currentWidth}px)` }}
                     >
                         {itemsGroup.map((group, gidx) => (
                             <Box key={gidx} sx={{

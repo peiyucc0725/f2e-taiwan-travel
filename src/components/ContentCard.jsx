@@ -3,10 +3,10 @@ import DateRangeOutlinedIcon from '@mui/icons-material/DateRangeOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 const ContentCard = (props) => {
-    const { maxWidth, width, imageHeight, titleFontSize } = props
+    const { maxWidth, minWidth, width, imageHeight, titleFontSize } = props
     const cardInfo = props.item
     return (
-        <Card sx={{ maxWidth: maxWidth, width: width || 'inital' }} className="custom-card">
+        <Card sx={{ maxWidth, minWidth, width: width || 'inital' }} className="custom-card">
             <CardActionArea>
                 {(cardInfo && cardInfo.image) &&
                     <CardMedia
@@ -48,6 +48,7 @@ const ContentCard = (props) => {
 
 ContentCard.defaultProps = {
     maxWidth: 255,
+    minWidth: 200,
     imageHeight: 140,
     titleFontSize: 20
 }
