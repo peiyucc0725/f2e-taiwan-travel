@@ -8,15 +8,37 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import HouseOutlinedIcon from '@mui/icons-material/HouseOutlined';
 import LocalActivityOutlinedIcon from '@mui/icons-material/LocalActivityOutlined';
 import RestaurantOutlinedIcon from '@mui/icons-material/RestaurantOutlined';
-
+const cateArray = [
+    {
+        text: '景點',
+        value: 1,
+        icon: (<LocationOnOutlinedIcon sx={{ fontSize: 20, mr: '12px' }} />)
+    },
+    {
+        text: '旅宿',
+        value: 2,
+        icon: (<HouseOutlinedIcon sx={{ fontSize: 20, mr: '12px' }} />)
+    },
+    {
+        text: '活動',
+        value: 3,
+        icon: (<LocalActivityOutlinedIcon sx={{ fontSize: 20, mr: '12px' }} />)
+    },
+    {
+        text: '美食',
+        value: 4,
+        icon: (<RestaurantOutlinedIcon sx={{ fontSize: 20, mr: '12px' }} />)
+    }
+]
 const MenuBtn = (props) => {
     return (
         <Button
-            id="fade-button"
+            className='menu-btn'
             aria-controls={props.controls}
             aria-haspopup="true"
+            sx={{ height: 48, color: '#333333'}}
+            disableRipple={true}
             onClick={props.handleClick}
-            sx={{ height: 48 }}
         >
             {props.data}
         </Button>
@@ -24,20 +46,33 @@ const MenuBtn = (props) => {
 }
 
 const SaerchBar = (props) => {
-    const [place, setPlace] = React.useState(0);
-    const [cate, setCate] = React.useState(0);
+    const [place, setPlace] = React.useState('');
+    const [cate, setCate] = React.useState('');
     const [anchorPlaceEl, setAnchorPlaceEl] = React.useState(null);
     const openPlace = Boolean(anchorPlaceEl);
     const [anchorCateEl, setAnchorCateEl] = React.useState(null);
     const openCate = Boolean(anchorCateEl);
+    const transPlace = (data) => {
+        const cityMapping = city.map(item => { return [...item.data] }).reduce((acc, val) => acc.concat(val))
+        return cityMapping.find(city => city.value === data);
+    }
 
     const handleChangePlace = (data) => {
-        setPlace(data);
+        if (data === 0) {
+            setPlace('全部');
+        }
+        else {
+            const findPlace = transPlace(data)
+            if (!findPlace) return
+            setPlace(findPlace.text);
+        }
         setAnchorPlaceEl(null);
     };
 
     const handleChangeCate = (data) => {
-        setCate(data);
+        const findCate = cateArray.find(cate => cate.value === data);
+        if (!findCate) return
+        setCate(findCate.text);
         setAnchorCateEl(null);
     };
 
@@ -50,8 +85,8 @@ const SaerchBar = (props) => {
             className='search-bar'
             style={{ height: props.dense ? 55 : 60 }}
         >
-            <FormControl sx={{ mt: 1, width: 100, height: 48 }}>
-                <InputLabel id="demo-simple-select-standard-label" sx={{ mt: 0.5 }}>地點</InputLabel>
+            <FormControl sx={{ width: 100, height: 48, mt: '16px' }}>
+                <InputLabel shrink focused={openPlace}>地點</InputLabel>
                 <MenuBtn
                     controls={'city-menu'}
                     data={place}
@@ -64,7 +99,7 @@ const SaerchBar = (props) => {
                     onClose={() => setAnchorPlaceEl(null)}
                     keepMounted
                 >
-                    <MenuItem onClick={() => handleChangePlace(0)}>全選</MenuItem>
+                    <MenuItem onClick={() => handleChangePlace(0)}>所有地點</MenuItem>
                     <Box sx={{ display: 'flex' }}>
                         {city.map((zone, zoneIdx) => (
                             <div key={zoneIdx}>
@@ -81,8 +116,8 @@ const SaerchBar = (props) => {
                 </Menu>
             </FormControl>
             <Divider sx={{ height: 45 }} orientation="vertical" />
-            <FormControl sx={{ mt: 1, width: 100, height: 48 }}>
-                <InputLabel id="demo-simple-select-standard-label" sx={{ mt: 0.5 }}>分類</InputLabel>
+            <FormControl sx={{ width: 100, height: 48, mt: '16px' }}>
+                <InputLabel shrink focused={openCate}>分類</InputLabel>
                 <MenuBtn
                     controls={'cate-menu'}
                     data={cate}
@@ -96,22 +131,12 @@ const SaerchBar = (props) => {
                     keepMounted
                 >
                     <div className='cate-block'>
-                        <MenuItem onClick={() => handleChangeCate(1)}>
-                            <LocationOnOutlinedIcon sx={{ fontSize: 20, mr: '12px' }}/>
-                            景點
-                        </MenuItem>
-                        <MenuItem onClick={() => handleChangeCate(2)}>
-                            <HouseOutlinedIcon sx={{ fontSize: 20, mr: '12px' }}/>
-                            旅宿
-                        </MenuItem>
-                        <MenuItem onClick={() => handleChangeCate(3)}>
-                            <LocalActivityOutlinedIcon sx={{ fontSize: 20, mr: '12px' }}/>
-                            活動
-                        </MenuItem>
-                        <MenuItem onClick={() => handleChangeCate(4)}>
-                            <RestaurantOutlinedIcon sx={{ fontSize: 20, mr: '12px' }}/>
-                            美食
-                        </MenuItem>
+                        {cateArray.map(cate => (
+                            <MenuItem key={cate.value} onClick={() => handleChangeCate(cate.value)}>
+                                {cate.icon}
+                                {cate.text}
+                            </MenuItem>
+                        ))}
                     </div>
                 </Menu>
             </FormControl>
