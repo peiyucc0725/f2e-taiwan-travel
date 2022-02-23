@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import { InputBase, InputLabel, MenuItem, FormControl, Divider, Button, Menu, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import CustomBtn from './CustomBtn';
@@ -8,6 +8,8 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import HouseOutlinedIcon from '@mui/icons-material/HouseOutlined';
 import LocalActivityOutlinedIcon from '@mui/icons-material/LocalActivityOutlined';
 import RestaurantOutlinedIcon from '@mui/icons-material/RestaurantOutlined';
+import {useNavigate} from 'react-router-dom';
+
 const cateArray = [
     {
         text: '景點',
@@ -52,6 +54,9 @@ const SaerchBar = (props) => {
     const openPlace = Boolean(anchorPlaceEl);
     const [anchorCateEl, setAnchorCateEl] = React.useState(null);
     const openCate = Boolean(anchorCateEl);
+    const navigate = useNavigate();
+    const search = useCallback(() => navigate('/search', {replace: true}), [navigate]);
+
     const transPlace = (data) => {
         const cityMapping = city.map(item => { return [...item.data] }).reduce((acc, val) => acc.concat(val))
         return cityMapping.find(city => city.value === data);
@@ -75,6 +80,7 @@ const SaerchBar = (props) => {
         setCate(findCate.text);
         setAnchorCateEl(null);
     };
+
 
     const SearchBarInput = styled(InputBase)(() => ({
         fontSize: '18px'
@@ -151,7 +157,8 @@ const SaerchBar = (props) => {
                 variant="contained"
                 aria-label="search"
                 className="search-btn"
-                sx={{ p: '10px', width: 120, height: props.dense ? 55 : 60 }}>
+                sx={{ p: '10px', width: 120, height: props.dense ? 55 : 60 }}
+                onClick={search}>
                 <SearchIcon sx={{ mr: 1 }} />
                 搜尋
             </CustomBtn>
