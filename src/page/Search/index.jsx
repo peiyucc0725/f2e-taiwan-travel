@@ -2,6 +2,7 @@ import * as React from 'react';
 import '../../assets/sass/search.sass'
 import searchBanner from '../../assets/image/searchBanner.png'
 import { styled, Tabs, Tab } from '@mui/material';
+import ContentCard from './ContentCard';
 
 const StyledTabs = styled((props) => (
     <Tabs
@@ -53,8 +54,8 @@ const Search = (props) => {
                     <StyledTab label="美食" />
                     <StyledTab label="活動" />
                 </StyledTabs>
-                <div>
-
+                <div className='search-content'>
+                    <ContentCard></ContentCard>
                 </div>
             </div>
         </div>

@@ -105,7 +105,7 @@ const SaerchBar = (props) => {
                     onClose={() => setAnchorPlaceEl(null)}
                     keepMounted
                 >
-                    <MenuItem onClick={() => handleChangePlace(0)}>所有地點</MenuItem>
+                    <MenuItem className='all-city-btn' onClick={() => handleChangePlace(0)}>所有地點</MenuItem>
                     <Box sx={{ display: 'flex' }}>
                         {city.map((zone, zoneIdx) => (
                             <div key={zoneIdx}>
