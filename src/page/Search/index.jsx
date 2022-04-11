@@ -2,7 +2,8 @@ import * as React from 'react';
 import '../../assets/sass/search.sass'
 import searchBanner from '../../assets/image/searchBanner.png'
 import { styled, Tabs, Tab } from '@mui/material';
-import ContentCard from './ContentCard';
+import ContentCard from '../../components/ContentCard';
+import { hotAttSub } from '../../utils/variable'
 
 const StyledTabs = styled((props) => (
     <Tabs
@@ -55,7 +56,9 @@ const Search = (props) => {
                     <StyledTab label="活動" />
                 </StyledTabs>
                 <div className='search-content'>
-                    <ContentCard></ContentCard>
+                    {hotAttSub.map((group, gidx) => (
+                        <ContentCard key={gidx} item={group} maxWidth={'100%'} width={'100%'} imageHeight={152} titleFontSize={20} descVisible={true}></ContentCard>                           
+                    ))}
                 </div>
             </div>
         </div>

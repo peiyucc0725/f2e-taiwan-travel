@@ -8,3 +8,14 @@
         padding: 24px 0
         .search-banner
             width: 100%
+        .search-content
+            display: flex
+            flex-wrap: wrap
+            & > *
+                width: calc(((100% - (24px * 3)) / 4))
+                padding: 12px
+                &:nth-child(4n+1)
+                    padding-left: 0
+                &:nth-child(4n+4)
+                    padding-right: 0
+                    

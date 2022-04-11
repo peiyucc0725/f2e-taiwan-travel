@@ -98,7 +98,7 @@ const Carousel = forwardRef((props, ref) => {
                                 rowGap: '24px',
                                 gridTemplateColumns: 'repeat(2, 1fr)'
                             }}>
-                                <ContentCard item={group[0][0]} maxWidth={'100%'} width={'100%'} imageHeight={322} titleFontSize={28}></ContentCard>                           
+                                <ContentCard item={group[0][0]} maxWidth={'100%'} width={'100%'} imageHeight={322} titleFontSize={28} descVisible={true}></ContentCard>                           
                                 <Box sx={{
                                     display: 'grid',
                                     columnGap: '30px',
