@@ -1,10 +1,10 @@
 $primaryColor: #23BFD4
 $subPrimaryColor: #17b2c7
 
-.header   
+.header
     height: 88px
     width: 100%
-    background-color: #ffffff 
+    background-color: #ffffff
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08)
     position: fixed
     top: 0
@@ -28,6 +28,9 @@ $subPrimaryColor: #17b2c7
     display: flex
     align-items: center
     justify-content: center
+
+.primary-text
+    color: $primaryColor
 
 .search-btn
     border: solid !important
@@ -170,7 +173,6 @@ $subPrimaryColor: #17b2c7
     .menu-btn:hover
         background-color: transparent
 
-
 #city-menu
     .zone-type
         font-weight: 600
@@ -204,3 +206,21 @@ $subPrimaryColor: #17b2c7
     .MuiList-root
         padding-top: 14px
         padding-bottom: 14px
+
+.tags
+    display: flex
+    .tag-groups
+        display: flex
+    .tag-item
+        border: 1px solid #33333333
+        border-radius: 100px
+        margin-left: 12px
+        padding: 8px 16px
+        cursor: pointer
+        transition: .3s
+        &:hover
+            background-color: $primaryColor
+            border-color: $primaryColor
+            color: #ffffff
+        &:first-child
+            margin: 0

@@ -10,7 +10,7 @@ const Carousel = forwardRef((props, ref) => {
         var res = []
         data.forEach((element, idx) => {
             if (idx % 5 === 0) {
-                res.push([[],[]])
+                res.push([[], []])
                 res[res.length - 1][0].push(element);
             } else {
                 res[res.length - 1][1].push(element);
@@ -98,15 +98,22 @@ const Carousel = forwardRef((props, ref) => {
                                 rowGap: '24px',
                                 gridTemplateColumns: 'repeat(2, 1fr)'
                             }}>
-                                <ContentCard item={group[0][0]} maxWidth={'100%'} width={'100%'} imageHeight={322} titleFontSize={28} descVisible={true}></ContentCard>                           
+                                <ContentCard
+                                    item={group[0][0]}
+                                    maxWidth={'100%'}
+                                    width={'100%'}
+                                    imageHeight={322}
+                                    titleFontSize={28}
+                                    descVisible={true}
+                                ></ContentCard>
                                 <Box sx={{
                                     display: 'grid',
                                     columnGap: '30px',
                                     rowGap: '24px',
                                     gridTemplateColumns: 'repeat(2, 1fr)'
                                 }}>
-                                    {group[1].map((item, index) => (     
-                                    <ContentCard key={index} item={item} maxWidth={'100%'} width={'100%'}></ContentCard>
+                                    {group[1].map((item, index) => (
+                                        <ContentCard key={index} item={item} maxWidth={'100%'} width={'100%'}></ContentCard>
                                     ))}
                                 </Box>
                             </Box>

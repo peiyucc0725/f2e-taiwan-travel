@@ -1,9 +1,10 @@
 import * as React from 'react';
 import '../../assets/sass/search.sass'
 import searchBanner from '../../assets/image/searchBanner.png'
-import { styled, Tabs, Tab } from '@mui/material';
-import ContentCard from '../../components/ContentCard';
+import { styled, Tabs, Tab, Divider } from '@mui/material';
 import { hotAttSub } from '../../utils/variable'
+import ContentCard from '../../components/ContentCard';
+import Tags from '../../components/Tags'
 
 const StyledTabs = styled((props) => (
     <Tabs
@@ -26,17 +27,17 @@ const StyledTabs = styled((props) => (
 });
 
 const StyledTab = styled((props) => <Tab disableRipple {...props} />)(() => ({
-        fontSize: '20px',
-        color: '#33333366',
-        fontWeight: 400,
-        '&.Mui-selected': {
-            color: '#333333',
-            fontWeight: 600,
-        },
-        '&.Mui-focusVisible': {
-            backgroundColor: '#333333',
-        },
-    }),
+    fontSize: '20px',
+    color: '#33333366',
+    fontWeight: 400,
+    '&.Mui-selected': {
+        color: '#333333',
+        fontWeight: 600,
+    },
+    '&.Mui-focusVisible': {
+        backgroundColor: '#333333',
+    },
+}),
 );
 
 const Search = (props) => {
@@ -44,6 +45,17 @@ const Search = (props) => {
     const handleChange = (event, newValue) => {
         setCate(newValue);
     };
+    const tags = [
+        [
+            { text: '熱門', value: 0 }
+        ],
+        [
+            { text: '遊憩', value: 1 },
+            { text: '自然風景', value: 2 },
+            { text: '歷史古蹟', value: 3 },
+            { text: '更多篩選', value: 4 }
+        ]
+    ]
 
     return (
         <div className='search-page'>
@@ -55,9 +67,32 @@ const Search = (props) => {
                     <StyledTab label="美食" />
                     <StyledTab label="活動" />
                 </StyledTabs>
+                <div className='search-result'>
+                    <div>
+                        台南景點的 
+                        <span className="primary-text" style={{'margin': '0 6px'}}>
+                            {'博物館'}
+                        </span> 
+                        共有 
+                        <span className="primary-text" style={{'margin': '0 6px'}}>
+                            {22}
+                        </span> 
+                        筆資料
+                    </div>
+                    <Tags items={tags}></Tags>
+                </div>
+                <Divider sx={{ my: '10px' }} />
                 <div className='search-content'>
                     {hotAttSub.map((group, gidx) => (
-                        <ContentCard key={gidx} item={group} maxWidth={'100%'} width={'100%'} imageHeight={152} titleFontSize={20} descVisible={true}></ContentCard>                           
+                        <ContentCard
+                            key={gidx}
+                            item={group}
+                            maxWidth={'100%'}
+                            width={'100%'}
+                            imageHeight={152}
+                            titleFontSize={20}
+                            descVisible={true}
+                        ></ContentCard>
                     ))}
                 </div>
             </div>

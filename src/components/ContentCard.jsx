@@ -19,7 +19,7 @@ const ContentCard = (props) => {
                 <CardContent className='custom-card__content'>
                     {(cardInfo && cardInfo.range) &&
                         <div className='custom-card__range'>
-                            <DateRangeOutlinedIcon sx={{ fontSize: 16 }}/>
+                            <DateRangeOutlinedIcon sx={{ fontSize: 16 }} />
                             {cardInfo.range}
                         </div>
                     }
@@ -28,7 +28,7 @@ const ContentCard = (props) => {
                     }
                     {(cardInfo && cardInfo.location) &&
                         <div className='custom-card__location'>
-                            <LocationOnOutlinedIcon sx={{ fontSize: 20 }}/>
+                            <LocationOnOutlinedIcon sx={{ fontSize: 20 }} />
                             {cardInfo.location}
                         </div>
                     }
