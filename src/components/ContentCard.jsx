@@ -12,8 +12,7 @@ const ContentCard = (props) => {
                     <CardMedia
                         component="img"
                         height={imageHeight}
-                        image={`https://picsum.photos/id/${(cardInfo.image + 1) * 10}/800/300`}
-                        alt="green iguana"
+                        image={cardInfo.image}
                     />
                 }
                 <CardContent className='custom-card__content'>

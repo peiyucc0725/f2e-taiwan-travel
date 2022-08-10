@@ -2,9 +2,9 @@ import * as React from 'react';
 import '../../assets/sass/search.sass'
 import searchBanner from '../../assets/image/searchBanner.png'
 import { styled, Tabs, Tab, Divider } from '@mui/material';
-import { hotAttSub } from '../../utils/variable'
 import ContentCard from '../../components/ContentCard';
 import Tags from '../../components/Tags'
+import { fetchList } from '../../apis/actives';
 
 const StyledTabs = styled((props) => (
     <Tabs
@@ -42,6 +42,7 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(() => ({
 
 const Search = (props) => {
     const [cate, setCate] = React.useState(0);
+    const [actives, setActives] = React.useState([]);
     const handleChange = (event, newValue) => {
         setCate(newValue);
     };
@@ -56,6 +57,15 @@ const Search = (props) => {
             { text: '更多篩選', value: 4 }
         ]
     ]
+
+    const fetchActives = async () => {
+        const {data} = await fetchList()
+        setActives(data)
+    }
+
+    React.useEffect(() => {
+        fetchActives()
+    }, [])
 
     return (
         <div className='search-page'>
@@ -83,7 +93,7 @@ const Search = (props) => {
                 </div>
                 <Divider sx={{ my: '10px' }} />
                 <div className='search-content'>
-                    {hotAttSub.map((group, gidx) => (
+                    {actives.map((group, gidx) => (
                         <ContentCard
                             key={gidx}
                             item={group}
