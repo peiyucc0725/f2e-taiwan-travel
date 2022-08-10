@@ -111,10 +111,14 @@ $subPrimaryColor: #17b2c7
 
 .custom-card
     box-shadow: none !important
+    transition: all .2s ease-out !important
+    &:hover
+        transform: scale(0.99)
     img
         border-radius: 4px
     &__content
         padding: 12px !important
+        text-align: justify
     &__title
         font-weight: 600
         overflow: hidden

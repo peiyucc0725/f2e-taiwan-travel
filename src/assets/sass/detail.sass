@@ -14,10 +14,15 @@ $primaryColor: #23BFD4
             margin: 16px 0
         .detail-header
             display: flex
+            width: 100%
+            margin-bottom: 48px
         .detail-image
-            width: 600px
+            width: 635px
+            min-width: 635px
+            height: 358px
             border-radius: 8px
         .detail-info
+            width: calc(100% - 600px - 30px)
             margin-left: 30px
             display: flex
             flex-direction: column
@@ -29,6 +34,7 @@ $primaryColor: #23BFD4
                 color: $primaryColor
                 display: flex
                 align-items: center
+                margin-right: 22px
                 svg
                     margin-right: 3px
             &__tag-wrap
@@ -41,3 +47,66 @@ $primaryColor: #23BFD4
                 display: inline-block
                 padding: 4px 8px
                 margin-right: 8px
+            &__contant
+                background-color: rgba(51, 51, 51, 0.02)
+                min-height: 200px
+                border-radius: 4px
+                padding: 16px 24px
+                margin-top: 30px
+            &__contant-inline
+                display: flex
+                align-content: center
+                font-size: 16px
+                margin: 10px 0
+                .title
+                    font-weight: 500
+                    margin-right: 16px
+                a
+                    color: #333333
+        .detail-body
+            display: flex
+            &__left
+                width: calc(100% - 200px)
+                .detail-body__block
+                    display: flex
+                    align-items: flex-start
+            &__right
+                width: 200px
+                margin: 0 100px
+            .custom-title
+                margin: 0
+            &__block
+                text-align: justify
+                margin: 32px 0 
+                .custom-title
+                    min-width: 190px
+            &__content
+                .text
+                    display: -webkit-box
+                    -webkit-box-orient: vertical
+                    -webkit-line-clamp: 5
+                    overflow: hidden
+                    position: relative
+                .detail-mask
+                    position: absolute
+                    bottom: 0
+                    height: 60px
+                    width: 100%
+                    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FBFBFB 100%, #FFFFFF 100%)
+                .detail-more
+                    margin-top: 16px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    color: $primaryColor
+                    cursor: pointer
+            .traffic-info
+                background-color: rgba(51, 51, 51, 0.02)
+                border-radius: 4px
+                padding: 16px 24px
+                margin-top: 6px
+                .title
+                    font-weight: 600
+                    font-size: 20px
+                    margin-bottom: 12px
+                
