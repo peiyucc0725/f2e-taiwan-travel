@@ -1,10 +1,11 @@
-import * as React from 'react';
+import React, {useCallback} from 'react';
 import '../../assets/sass/search.sass'
 import searchBanner from '../../assets/image/searchBanner.png'
 import { styled, Tabs, Tab, Divider } from '@mui/material';
 import ContentCard from '../../components/ContentCard';
 import Tags from '../../components/Tags'
 import { fetchList } from '../../apis/actives';
+import {useNavigate} from 'react-router-dom';
 
 const StyledTabs = styled((props) => (
     <Tabs
@@ -43,6 +44,8 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(() => ({
 const Search = (props) => {
     const [cate, setCate] = React.useState(0);
     const [actives, setActives] = React.useState([]);
+    const navigate = useNavigate();
+
     const handleChange = (event, newValue) => {
         setCate(newValue);
     };
@@ -62,6 +65,10 @@ const Search = (props) => {
         const {data} = await fetchList()
         setActives(data)
     }
+    const currentDetail = (id) => {
+        console.log(id)
+    }
+    // const currentDetail = useCallback((id) => navigate(`/detail/${id}`, {replace: true}), [navigate]);
 
     React.useEffect(() => {
         fetchActives()
@@ -93,15 +100,16 @@ const Search = (props) => {
                 </div>
                 <Divider sx={{ my: '10px' }} />
                 <div className='search-content'>
-                    {actives.map((group, gidx) => (
+                    {actives.map((item, gidx) => (
                         <ContentCard
                             key={gidx}
-                            item={group}
+                            item={item}
                             maxWidth={'100%'}
                             width={'100%'}
                             imageHeight={152}
                             titleFontSize={20}
                             descVisible={true}
+                            onClick={() => currentDetail(item.id)}
                         ></ContentCard>
                     ))}
                 </div>

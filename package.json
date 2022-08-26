@@ -2,6 +2,7 @@
   "name": "f2e-taiwan-travel",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://peiyu0725.github.io/f2e-taiwan-travel/",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
@@ -12,6 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "eslint": "^8.4.1",
+    "gh-pages": "^4.0.0",
     "node-sass": "^7.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -24,8 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "deploy": "node ./ghpages.js"
   },
   "eslintConfig": {
     "extends": [
