@@ -4,8 +4,9 @@ import searchBanner from '../../assets/image/searchBanner.png'
 import { styled, Tabs, Tab, Divider } from '@mui/material';
 import ContentCard from '../../components/ContentCard';
 import Tags from '../../components/Tags'
-import { fetchList } from '../../apis/actives';
-import {useNavigate} from 'react-router-dom';
+// import { fetchList } from '../../apis/actives';
+import { useNavigate } from 'react-router-dom';
+import { hotAttSub } from '../../utils/variable.js'
 
 const StyledTabs = styled((props) => (
     <Tabs
@@ -62,13 +63,13 @@ const Search = (props) => {
     ]
 
     const fetchActives = async () => {
-        const {data} = await fetchList()
-        setActives(data)
+        // const {data} = await fetchList()
+        setActives(hotAttSub)
     }
-    const currentDetail = (id) => {
-        console.log(id)
-    }
-    // const currentDetail = useCallback((id) => navigate(`/detail/${id}`, {replace: true}), [navigate]);
+    // const currentDetail = (id) => {
+    //     console.log(id)
+    // }
+    const currentDetail = useCallback((id) => navigate(`/detail/${id}`), [navigate]);
 
     React.useEffect(() => {
         fetchActives()

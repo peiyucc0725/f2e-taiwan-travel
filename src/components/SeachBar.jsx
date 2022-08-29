@@ -55,7 +55,7 @@ const SaerchBar = (props) => {
     const [anchorCateEl, setAnchorCateEl] = React.useState(null);
     const openCate = Boolean(anchorCateEl);
     const navigate = useNavigate();
-    const search = useCallback(() => navigate('/search', {replace: true}), [navigate]);
+    const search = useCallback(() => navigate('/search'), [navigate]);
 
     const transPlace = (data) => {
         const cityMapping = city.map(item => { return [...item.data] }).reduce((acc, val) => acc.concat(val))

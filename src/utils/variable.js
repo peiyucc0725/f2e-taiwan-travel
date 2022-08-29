@@ -1,22 +1,22 @@
 export const activity = [
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/1/600/300' },
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/2/600/300' },
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/3/600/300' },
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/4/600/300' },
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/5/600/300' },
-    { title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/6/600/300' },
+    { id: 1, title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/1/600/300' },
+    { id: 2, title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/2/600/300' },
+    { id: 3, title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/3/600/300' },
+    { id: 4, title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/4/600/300' },
+    { id: 5, title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/5/600/300' },
+    { id: 6, title: '2021金崙溫泉季聖誕點燈活動', range: '2021/02/10 ~ 2021/02/28', location: '宜蘭縣', tags: ['年度活動'], image: 'https://picsum.photos/id/6/600/300' },
 ]
 
 export const hotAttSub = [
-    { title: '九份老街', location: '新北市', tags: ['歷史'], image: 'https://picsum.photos/id/7/600/300', content: '九份老街是位於臺灣新北市瑞芳區的一條老街，主要範圍以聚集在基山街、豎崎路及輕便路等街道為主，是全台灣最熱門的觀光景點之一，全年觀光客絡繹不絕。若以客源分析，平日以來自日本、韓國等地的外籍遊客' },
-    { title: '不厭亭', location: '新北市', tags: ['公路', '打卡'], image: 'https://picsum.photos/id/8/600/300' },
-    { title: '十分瀑布', location: '新北市', tags: ['自然景觀', '瀑布'], image: 'https://picsum.photos/id/9/600/300' },
-    { title: '象山登山步道', location: '台北市', tags: ['登山步道', '運動'], image: 'https://picsum.photos/id/10/600/300' },
-    { title: '野柳地質公園', location: '新北市', tags: ['自然景觀'], image: 'https://picsum.photos/id/11/600/300' },
-    { title: '九份老街', location: '新北市', tags: ['歷史'], image: 'https://picsum.photos/id/12/600/300', content: '九份老街是位於臺灣新北市瑞芳區的一條老街，主要範圍以聚集在基山街、豎崎路及輕便路等街道為主，是全台灣最熱門的觀光景點之一，全年觀光客絡繹不絕。若以客源分析，平日以來自日本、韓國等地的外籍遊客' },
-    { title: '不厭亭', location: '新北市', tags: ['公路', '打卡'], image: 'https://picsum.photos/id/13/600/300' },
-    { title: '十分瀑布', location: '新北市', tags: ['自然景觀', '瀑布'], image: 'https://picsum.photos/id/14/600/300' },
-    { title: '象山登山步道', location: '台北市', tags: ['登山步道', '運動'], image: 'https://picsum.photos/id/15/600/300' },
+    { id: 1, title: '九份老街', location: '新北市', tags: ['歷史'], image: 'https://picsum.photos/id/7/600/300', content: '九份老街是位於臺灣新北市瑞芳區的一條老街，主要範圍以聚集在基山街、豎崎路及輕便路等街道為主，是全台灣最熱門的觀光景點之一，全年觀光客絡繹不絕。若以客源分析，平日以來自日本、韓國等地的外籍遊客' },
+    { id: 2, title: '不厭亭', location: '新北市', tags: ['公路', '打卡'], image: 'https://picsum.photos/id/8/600/300' },
+    { id: 3, title: '十分瀑布', location: '新北市', tags: ['自然景觀', '瀑布'], image: 'https://picsum.photos/id/9/600/300' },
+    { id: 4, title: '象山登山步道', location: '台北市', tags: ['登山步道', '運動'], image: 'https://picsum.photos/id/10/600/300' },
+    { id: 5, title: '野柳地質公園', location: '新北市', tags: ['自然景觀'], image: 'https://picsum.photos/id/11/600/300' },
+    { id: 6, title: '九份老街', location: '新北市', tags: ['歷史'], image: 'https://picsum.photos/id/12/600/300', content: '九份老街是位於臺灣新北市瑞芳區的一條老街，主要範圍以聚集在基山街、豎崎路及輕便路等街道為主，是全台灣最熱門的觀光景點之一，全年觀光客絡繹不絕。若以客源分析，平日以來自日本、韓國等地的外籍遊客' },
+    { id: 7, title: '不厭亭', location: '新北市', tags: ['公路', '打卡'], image: 'https://picsum.photos/id/13/600/300' },
+    { id: 8, title: '十分瀑布', location: '新北市', tags: ['自然景觀', '瀑布'], image: 'https://picsum.photos/id/14/600/300' },
+    { id: 9, title: '象山登山步道', location: '台北市', tags: ['登山步道', '運動'], image: 'https://picsum.photos/id/15/600/300' },
 ]
 
 export const hotActSub = [
@@ -91,3 +91,19 @@ export const city = [
         ]
     }
 ]
+
+export const activityDetail = {
+    id: 1,
+    title: '七股龍山宮',
+    location: '台南市',
+    tags: ['遊憩', '歷史古蹟', '人文'],
+    image: 'https://picsum.photos/id/7/600/300',
+    time: '參觀或開放時間為 05:00-20:00',
+    ticket: '免費',
+    phone: '06 787 1058',
+    address: '台南市七股區龍山208號',
+    url: 'https://www.google.com.tw/?hl=zh_TW',
+    content: '九份老街是位於臺灣新北市瑞芳區的一條老街，主要範圍以聚集在基山街、豎崎路及輕便路等街道為主，是全台灣最熱門的觀光景點之一，全年觀光客絡繹不絕。若以客源分析，平日以來自日本、韓國等地的外籍遊客',
+    traffic: '1. 從「新營火車站」步行至《新營轉運站》，搭乘【黃幹線】至《白河》站，轉乘【黃13】或【黃14】於《白河水庫》下車。',
+    precautions: '1.注意蚊蟲叮咬，鳥族多，記得帶望眼鏡來賞鳥\n2.水域地區禁止游泳\n3.機車禁止進入'
+}

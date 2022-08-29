@@ -6,7 +6,7 @@ const ContentCard = (props) => {
     const { maxWidth, minWidth, width, imageHeight, titleFontSize, descVisible } = props
     const cardInfo = props.item
     return (
-        <Card sx={{ maxWidth, minWidth, width: width || 'inital' }} className="custom-card">
+        <Card sx={{ maxWidth, minWidth, width: width || 'inital' }} className="custom-card" onClick={props.onClick}>
             <CardActionArea>
                 {(cardInfo && cardInfo.image) &&
                     <CardMedia

@@ -3,7 +3,8 @@ import '../../assets/sass/detail.sass'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import { Divider } from '@mui/material';
-import { fetch } from '../../apis/actives';
+// import { fetch } from '../../apis/actives';
+import { activityDetail } from '../../utils/variable.js'
 
 const Detail = (props) => {
     const [info, setInfo] = React.useState({});
@@ -17,9 +18,9 @@ const Detail = (props) => {
         settTextOverflow(textHeight > height)
     }
     const fetchInfo = async (id) => {
-        let {data} = await fetch(id)
-        data.precautions = data.precautions.replace(/(\\r\\n)|(\\n)/g,'\u000A')
-        setInfo(data)
+        // let {data} = await fetch(id)
+        activityDetail.precautions = activityDetail.precautions.replace(/(\\r\\n)|(\\n)/g,'\u000A')
+        setInfo(activityDetail)
     }
 
     useEffect(() => {
