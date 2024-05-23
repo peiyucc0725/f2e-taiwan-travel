@@ -6,7 +6,7 @@ Framework: React
 ```
 **UI 設計來源: [The F2E 3rd 參賽者 Chi](https://2021.thef2e.com/users/6296427084285739330/)**
 
-**Live demo: [台灣旅遊景點導覽](https://peiyu0725.github.io/f2e-taiwan-travel/)**
+**Live demo: [台灣旅遊景點導覽](https://peiyucc0725.github.io/f2e-taiwan-travel/)**
 
 ### Node version
 ```
